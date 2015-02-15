@@ -13,7 +13,7 @@
 		6E08A83B1A8DBEBF00F6093C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E08A83A1A8DBEBF00F6093C /* Images.xcassets */; };
 		6E08A83E1A8DBEBF00F6093C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E08A83C1A8DBEBF00F6093C /* LaunchScreen.xib */; };
 		6E08A84A1A8DBEBF00F6093C /* MediumMenuInScrollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08A8491A8DBEBF00F6093C /* MediumMenuInScrollTests.swift */; };
-		6E08A8541A8F839200F6093C /* MediumMenuInScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08A8531A8F839200F6093C /* MediumMenuInScroll.swift */; };
+		6E08A8541A8F839200F6093C /* MediumMenuInFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08A8531A8F839200F6093C /* MediumMenuInFullScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		6E08A8431A8DBEBF00F6093C /* MediumMenuInScrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediumMenuInScrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E08A8481A8DBEBF00F6093C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E08A8491A8DBEBF00F6093C /* MediumMenuInScrollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumMenuInScrollTests.swift; sourceTree = "<group>"; };
-		6E08A8531A8F839200F6093C /* MediumMenuInScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumMenuInScroll.swift; sourceTree = "<group>"; };
+		6E08A8531A8F839200F6093C /* MediumMenuInFullScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumMenuInFullScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		6E08A8551A8F839700F6093C /* MediumMenuInScroll */ = {
 			isa = PBXGroup;
 			children = (
-				6E08A8531A8F839200F6093C /* MediumMenuInScroll.swift */,
+				6E08A8531A8F839200F6093C /* MediumMenuInFullScreen.swift */,
 			);
 			name = MediumMenuInScroll;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E08A8361A8DBEBF00F6093C /* ViewController.swift in Sources */,
-				6E08A8541A8F839200F6093C /* MediumMenuInScroll.swift in Sources */,
+				6E08A8541A8F839200F6093C /* MediumMenuInFullScreen.swift in Sources */,
 				6E08A8341A8DBEBF00F6093C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
