@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  MediumMenuInScroll
+//  MediumScrollFullScreen
 //
-//  Created by pixyzehn on 2/13/15.
+//  Created by pixyzehn on 2/16/15.
 //  Copyright (c) 2015 pixyzehn. All rights reserved.
 //
 

@@ -1,15 +1,15 @@
 //
-//  MediumMenuInScrollTests.swift
-//  MediumMenuInScrollTests
+//  MediumScrollFullScreenTests.swift
+//  MediumScrollFullScreenTests
 //
-//  Created by pixyzehn on 2/13/15.
+//  Created by pixyzehn on 2/16/15.
 //  Copyright (c) 2015 pixyzehn. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class MediumMenuInScrollTests: XCTestCase {
+class MediumScrollFullScreenTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

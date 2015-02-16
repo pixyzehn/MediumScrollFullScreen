@@ -9,13 +9,12 @@
 import Foundation
 import UIKit
 
-class MediumMenuInFullScreen: NSObject, UIScrollViewDelegate {
+class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
    
     enum Direction {
         case None
         case Up
         case Down
-        
     }
     
     func detectScrollDirection(currentOffsetY: Float, previousOffsetY: Float) -> Direction {
@@ -28,7 +27,7 @@ class MediumMenuInFullScreen: NSObject, UIScrollViewDelegate {
         }
     }
     
-    var delegate: MediumMenuInScrollDelegate?
+    var delegate: MediumScrollFullScreenDelegate?
     var upThresholdY: Float?
     var downThresholdY: Float?
     
@@ -132,11 +131,11 @@ class MediumMenuInFullScreen: NSObject, UIScrollViewDelegate {
     
 }
 
-@objc protocol MediumMenuInScrollDelegate {
-    func scrollFullScreen(fullScreenProxy: MediumMenuInFullScreen, scrollViewDidScrollUp deltaY: Float)
-    func scrollFullScreen(fullScreenProxy: MediumMenuInFullScreen, scrollViewDidScrollDown deltaY: Float)
-    func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumMenuInFullScreen)
-    func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumMenuInFullScreen)
+@objc protocol MediumScrollFullScreenDelegate {
+    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float)
+    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float)
+    func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen)
+    func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen)
 }
 
 extension UIViewController {
