@@ -41,7 +41,8 @@ class MediumMenuInFullScreen: NSObject, UIScrollViewDelegate {
         super.init()
     }
     
-    func initWithForwardTarget(forwardTarget: AnyObject) {
+    convenience init(forwardTarget: AnyObject) {
+        self.init()
         reset()
         downThresholdY = 200.0
         upThresholdY = 0.0
@@ -138,7 +139,7 @@ class MediumMenuInFullScreen: NSObject, UIScrollViewDelegate {
     func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumMenuInFullScreen)
 }
 
-extension UINavigationController {
+extension UIViewController {
     func showNavigationBar(animated: Bool) {
         let statusBarHeight: CGFloat = getStatusBarHeight()
         let appKeyWindow: UIWindow = UIApplication.sharedApplication().keyWindow!
@@ -153,12 +154,12 @@ extension UINavigationController {
         let appBaseView: UIView = appKeyWindow.rootViewController!.view
         let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.frame, toView: appKeyWindow)
         let overwrapStatusBarHeight: CGFloat = statusBarHeight - viewControllerFrame.origin.y
-        let navigationBarHeight: CGFloat = navigationBar.frame.size.height
+        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
         let top: CGFloat = -navigationBarHeight
         self.setNavigationBarOriginY(Float(top), animated: animated)
     }
     func moveNavigationBar(deltaY: Float, animated: Bool) {
-        let frame: CGRect = navigationBar.frame
+        let frame: CGRect = self.navigationController!.navigationBar.frame
         let nextY: CGFloat = frame.origin.y + CGFloat(deltaY)
         self.setNavigationBarOriginY(Float(nextY), animated: animated)
     }
@@ -168,7 +169,7 @@ extension UINavigationController {
         let appBaseView: UIView = appKeyWindow.rootViewController!.view
         let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.frame, toView: appKeyWindow)
         let overwrapStatusBarHeight: CGFloat = statusBarHeight - viewControllerFrame.origin.y
-        var frame = navigationBar.frame
+        var frame = self.navigationController!.navigationBar.frame
         let navigationBarHeight = frame.size.height
         let topLimit: CGFloat = -navigationBarHeight
         let bottomLimit = overwrapStatusBarHeight
@@ -179,7 +180,7 @@ extension UINavigationController {
         let alpha: CGFloat = max(1.0 - navBarHiddenRatio, 0.00001)
         UIView.animateWithDuration(animated ? 0.1 : 0, animations: {[unowned self]() -> () in
         
-            self.navigationBar.frame = frame
+            self.navigationController!.navigationBar.frame = frame
             var index: Int = 0
             for v in self.navigationController!.navigationBar.subviews {
                 index++
