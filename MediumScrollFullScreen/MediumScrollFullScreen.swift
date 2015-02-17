@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 pixyzehn. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
-   
+
     enum Direction {
         case None
         case Up
@@ -26,7 +25,7 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
             return .None
         }
     }
-    
+ 
     var delegate: MediumScrollFullScreenDelegate?
     var upThresholdY: Float?
     var downThresholdY: Float?
@@ -39,12 +38,13 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     override init() {
         super.init()
     }
-    
-    convenience init(forwardTarget: AnyObject) {
+ 
+    convenience init(forwardTarget: UIScrollViewDelegate) {
         self.init()
         reset()
-        downThresholdY = 200.0
-        upThresholdY = 0.0
+        self.downThresholdY = 200.0
+        self.upThresholdY = 0.0
+        self.forwardTarget = forwardTarget
     }
     
     func reset() {
@@ -56,21 +56,22 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         forwardTarget?.scrollViewDidScroll!(scrollView)
         
-        var currentOffsetY: Float = Float(scrollView.contentOffset.y)
-        var currentScrollDirection: Direction = detectScrollDirection(currentOffsetY, previousOffsetY: previousOffsetY!)
-        var topBoundary: Float = -Float(scrollView.contentInset.top)
-        var bottomBoundary: Float = Float(scrollView.contentSize.height + scrollView.contentInset.bottom)
+        let currentOffsetY = Float(scrollView.contentOffset.y)
         
-        var isOverTopBoundary: Bool = currentOffsetY <= topBoundary
-        var isOverBottomBoundary: Bool = currentOffsetY >= bottomBoundary
+        let currentScrollDirection = detectScrollDirection(currentOffsetY, previousOffsetY: previousOffsetY!)
+        let topBoundary = -Float(scrollView.contentInset.top)
+        let bottomBoundary = Float(scrollView.contentSize.height + scrollView.contentInset.bottom)
         
-        var isBouncing: Bool = (isOverTopBoundary && currentScrollDirection != Direction.Down) || (isOverBottomBoundary && currentScrollDirection != Direction.Up)
+        let isOverTopBoundary: Bool = currentOffsetY <= topBoundary
+        let isOverBottomBoundary: Bool = currentOffsetY >= bottomBoundary
+
+        let isBouncing: Bool = (isOverTopBoundary && currentScrollDirection != Direction.Down) || (isOverBottomBoundary && currentScrollDirection != Direction.Up)
         
         if (isBouncing || !scrollView.dragging) {
             return
         }
 
-        var deltaY: Float = previousOffsetY! - currentOffsetY
+        let deltaY: Float = previousOffsetY! - currentOffsetY
         accumulatedY! += deltaY
         
         switch currentScrollDirection {
@@ -99,20 +100,20 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         forwardTarget?.scrollViewDidEndDragging!(scrollView, willDecelerate: decelerate)
         
-        var currentOffsetY: Float = Float(scrollView.contentOffset.y)
-        var topBoundary: Float = -Float(scrollView.contentInset.top)
-        var bottomBoundary: Float = -Float(scrollView.contentSize.height + scrollView.contentInset.bottom)
+        let currentOffsetY: Float = Float(scrollView.contentOffset.y)
+        let topBoundary: Float = -Float(scrollView.contentInset.top)
+        let bottomBoundary: Float = Float(scrollView.contentSize.height + scrollView.contentInset.bottom)
         
         switch previousScrollDirection {
         case .Up:
-            var isOverThreshold = accumulatedY! < -upThresholdY!
-            var isOverBottomBoundary = currentOffsetY >= bottomBoundary
+            let isOverThreshold = accumulatedY! < -upThresholdY!
+            let isOverBottomBoundary = currentOffsetY >= bottomBoundary
             if isOverBottomBoundary || isOverThreshold {
                 delegate?.scrollFullScreenScrollViewDidEndDraggingScrollUp(self)
             }
         case .Down:
-            var isOverThreshold = accumulatedY! > downThresholdY!
-            var isOverTopBoundary = currentOffsetY <= topBoundary
+            let isOverThreshold = accumulatedY! > downThresholdY!
+            let isOverTopBoundary = currentOffsetY <= topBoundary
             if isOverThreshold || isOverTopBoundary {
                 delegate?.scrollFullScreenScrollViewDidEndDraggingScrollDown(self)
             }
@@ -141,51 +142,66 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
 extension UIViewController {
     func showNavigationBar(animated: Bool) {
         let statusBarHeight: CGFloat = getStatusBarHeight()
+        
         let appKeyWindow: UIWindow = UIApplication.sharedApplication().keyWindow!
         let appBaseView: UIView = appKeyWindow.rootViewController!.view
-        let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.frame, toView: appKeyWindow)
+        let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.bounds, toView: appKeyWindow)
+        
         let overwrapStatusBarHeight: CGFloat = statusBarHeight - viewControllerFrame.origin.y
+        
         self.setNavigationBarOriginY(Float(overwrapStatusBarHeight), animated: animated)
     }
+    
     func hideNavigationBar(animated: Bool) {
         let statusBarHeight: CGFloat = getStatusBarHeight()
+        
         let appKeyWindow: UIWindow = UIApplication.sharedApplication().keyWindow!
         let appBaseView: UIView = appKeyWindow.rootViewController!.view
-        let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.frame, toView: appKeyWindow)
+        let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.bounds, toView: appKeyWindow)
+        
         let overwrapStatusBarHeight: CGFloat = statusBarHeight - viewControllerFrame.origin.y
-        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
+        
+        let navigationBarHeight: CGFloat = navigationController!.navigationBar.frame.size.height
         let top: CGFloat = -navigationBarHeight
+        
         self.setNavigationBarOriginY(Float(top), animated: animated)
     }
+    
     func moveNavigationBar(deltaY: Float, animated: Bool) {
-        let frame: CGRect = self.navigationController!.navigationBar.frame
+        let frame: CGRect = navigationController!.navigationBar.frame
         let nextY: CGFloat = frame.origin.y + CGFloat(deltaY)
         self.setNavigationBarOriginY(Float(nextY), animated: animated)
     }
+    
     func setNavigationBarOriginY(y: Float, animated: Bool) {
         let statusBarHeight: CGFloat = getStatusBarHeight()
+        
         let appKeyWindow: UIWindow = UIApplication.sharedApplication().keyWindow!
         let appBaseView: UIView = appKeyWindow.rootViewController!.view
-        let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.frame, toView: appKeyWindow)
+        let viewControllerFrame: CGRect = appBaseView.convertRect(appBaseView.bounds, toView: appKeyWindow)
+        
         let overwrapStatusBarHeight: CGFloat = statusBarHeight - viewControllerFrame.origin.y
-        var frame = self.navigationController!.navigationBar.frame
+        
+        var frame = navigationController!.navigationBar.frame
         let navigationBarHeight = frame.size.height
+        
         let topLimit: CGFloat = -navigationBarHeight
         let bottomLimit = overwrapStatusBarHeight
         
-        let x = CGFloat(min(max(CGFloat(y), topLimit), bottomLimit))
-        frame.origin.y = x
-        let navBarHiddenRatio: CGFloat = overwrapStatusBarHeight > 0 ? (overwrapStatusBarHeight - frame.origin.y) / overwrapStatusBarHeight : 0
-        let alpha: CGFloat = max(1.0 - navBarHiddenRatio, 0.00001)
-        UIView.animateWithDuration(animated ? 0.1 : 0, animations: {[unowned self]() -> () in
+        frame.origin.y = CGFloat(min(max(CGFloat(y), topLimit), bottomLimit))
         
+        let navBarHiddenRatio: CGFloat = overwrapStatusBarHeight > 0 ? (overwrapStatusBarHeight - frame.origin.y) / overwrapStatusBarHeight : 0
+        let alpha: CGFloat = max(1.0 - navBarHiddenRatio, 0.000001)
+        UIView.animateWithDuration(animated ? 0.1 : 0, animations: {[unowned self]() -> () in
             self.navigationController!.navigationBar.frame = frame
             var index: Int = 0
             for v in self.navigationController!.navigationBar.subviews {
+                let navView = v as UIView
                 index++
-//                if index == 1 || v.hidden == true || v.alpha <= 0.0 {
-//
-//                }
+                if index == 1 || navView.hidden == true || navView.alpha <= 0.0 {
+                    continue
+                }
+                navView.alpha = alpha
             }
         })
     }

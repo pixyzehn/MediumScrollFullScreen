@@ -9,7 +9,7 @@ Medium's upper and lower menu in Scroll.
 
 ## Description
 
-MediumMenuInScroll is really similar to menu of real Medium for iOS.
+MediumMenuScrollFullScreen is really similar to menu of real Medium for iOS.
 
 ## Install
 

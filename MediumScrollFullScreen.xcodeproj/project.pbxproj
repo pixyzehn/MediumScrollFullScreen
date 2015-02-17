@@ -14,6 +14,7 @@
 		6ED2BC2E1A919AF700A266E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ED2BC2C1A919AF700A266E9 /* LaunchScreen.xib */; };
 		6ED2BC3A1A919AF700A266E9 /* MediumScrollFullScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED2BC391A919AF700A266E9 /* MediumScrollFullScreenTests.swift */; };
 		6ED2BC451A919B3D00A266E9 /* MediumScrollFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED2BC441A919B3D00A266E9 /* MediumScrollFullScreen.swift */; };
+		6ED2BC471A91A50800A266E9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED2BC461A91A50800A266E9 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		6ED2BC381A919AF700A266E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED2BC391A919AF700A266E9 /* MediumScrollFullScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumScrollFullScreenTests.swift; sourceTree = "<group>"; };
 		6ED2BC441A919B3D00A266E9 /* MediumScrollFullScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumScrollFullScreen.swift; sourceTree = "<group>"; };
+		6ED2BC461A91A50800A266E9 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				6ED2BC431A919B1800A266E9 /* MediumScrollFullScreen */,
 				6ED2BC231A919AF700A266E9 /* AppDelegate.swift */,
 				6ED2BC251A919AF700A266E9 /* ViewController.swift */,
+				6ED2BC461A91A50800A266E9 /* TableViewController.swift */,
 				6ED2BC271A919AF700A266E9 /* Main.storyboard */,
 				6ED2BC2A1A919AF700A266E9 /* Images.xcassets */,
 				6ED2BC2C1A919AF700A266E9 /* LaunchScreen.xib */,
@@ -226,6 +229,7 @@
 				6ED2BC261A919AF700A266E9 /* ViewController.swift in Sources */,
 				6ED2BC241A919AF700A266E9 /* AppDelegate.swift in Sources */,
 				6ED2BC451A919B3D00A266E9 /* MediumScrollFullScreen.swift in Sources */,
+				6ED2BC471A91A50800A266E9 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +421,7 @@
 				6ED2BC3F1A919AF700A266E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6ED2BC401A919AF700A266E9 /* Build configuration list for PBXNativeTarget "MediumScrollFullScreenTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				6ED2BC421A919AF700A266E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

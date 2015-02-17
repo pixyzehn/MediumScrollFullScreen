@@ -33,11 +33,11 @@ class ViewController: UIViewController, MediumScrollFullScreenDelegate {
         moveNavigationBar(deltaY, animated: true)
     }
     
-    func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen) {
+    func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen) {
         hideNavigationBar(true)
     }
     
-    func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen) {
+    func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen) {
         showNavigationBar(true)
     }
     
