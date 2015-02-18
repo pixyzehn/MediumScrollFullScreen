@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FNu-j3-QYY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
@@ -13,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="TextCell" selectionStyle="default" indentationWidth="10" id="eST-cV-OK3">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="TextCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" id="eST-cV-OK3">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eST-cV-OK3" id="gSh-Ew-8zG">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -46,12 +47,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8g-gx-srE">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8g-gx-srE">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q8g-gx-srE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="00z-m5-gKh"/>
+                            <constraint firstAttribute="trailing" secondItem="q8g-gx-srE" secondAttribute="trailing" id="QFG-ji-aTd"/>
+                            <constraint firstItem="q8g-gx-srE" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gBy-CV-IDf"/>
+                            <constraint firstItem="q8g-gx-srE" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="gJt-Ql-Enu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q8g-gx-srE" secondAttribute="trailing" constant="-16" id="jod-qf-0WU"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="q8g-gx-srE" secondAttribute="bottom" id="mht-Ng-sxK"/>
+                            <constraint firstItem="q8g-gx-srE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n1c-54-Sjs"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="q8g-gx-srE" secondAttribute="bottom" id="qlc-A6-JNc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="00z-m5-gKh"/>
+                                <exclude reference="gJt-Ql-Enu"/>
+                                <exclude reference="jod-qf-0WU"/>
+                                <exclude reference="mht-Ng-sxK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="XSr-pk-xMd"/>
                     <connections>
