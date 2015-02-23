@@ -289,7 +289,8 @@ extension UIViewController {
     }
     
     private func bottomBarViewControlleViewHeightFromViewSize(viewSize: CGSize) -> CGFloat {
-        let viewHeight = viewSize.height
+        var viewHeight: CGFloat = 0.0
+        viewHeight += viewSize.height
         return viewHeight
     }
 }

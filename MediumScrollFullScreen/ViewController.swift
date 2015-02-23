@@ -34,6 +34,10 @@ class ViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestur
         screenTap.delegate = self
         webView.addGestureRecognizer(screenTap)
     }
+    
+    override func viewWillLayoutSubviews() {
+        hideToolbar(false)
+    }
 
     func tapGesture(sender: UITapGestureRecognizer) {
         if statement == .Hiding {
@@ -59,12 +63,12 @@ class ViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestur
     
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float) {
         moveNavigationBar(deltaY: deltaY, animated: true)
-        //moveToolbar(deltaY: deltaY, animated: true)
+        moveToolbar(deltaY: -deltaY, animated: true)
     }
 
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float) {
         moveNavigationBar(deltaY: deltaY, animated: true)
-        //moveToolbar(deltaY: deltaY, animated: true)
+        moveToolbar(deltaY: -deltaY, animated: true)
     }
 
     func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen) {
