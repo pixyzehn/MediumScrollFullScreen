@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestureRecognizerDelegate {
+class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestureRecognizerDelegate {
     
     enum State {
         case Showing
@@ -19,6 +19,11 @@ class ViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestur
     
     var statement: State = .Hiding
     var scrollProxy: MediumScrollFullScreen?
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        hideToolbar(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +38,34 @@ class ViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestur
         screenTap.numberOfTapsRequired = 1
         screenTap.delegate = self
         webView.addGestureRecognizer(screenTap)
+        
+        self.title = "Title"
+        navigationItem.hidesBackButton = true
+        
+        var backButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
+        backButton.tintColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
+        navigationItem.leftBarButtonItem = backButton
+       
+        var rightButton = UIBarButtonItem(image: UIImage(named: "star"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        rightButton.tintColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
+        navigationItem.rightBarButtonItem = rightButton
+        
+        // Toolbar
+        
+        
     }
     
-    override func viewWillLayoutSubviews() {
-        hideToolbar(false)
+    func popView() {
+        navigationController?.popViewControllerAnimated(true)
     }
 
     func tapGesture(sender: UITapGestureRecognizer) {
         if statement == .Hiding {
+            if navigationController?.toolbarHidden == true {
+                UIView.animateWithDuration(0.3, animations: {[unowned self]() -> () in
+                    self.navigationController!.toolbarHidden = false
+                })
+            }
             showNavigationBar(true)
             showToolbar(true)
             statement = .Showing
@@ -68,7 +93,6 @@ class ViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestur
 
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float) {
         moveNavigationBar(deltaY: deltaY, animated: true)
-        moveToolbar(deltaY: -deltaY, animated: true)
     }
 
     func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen) {

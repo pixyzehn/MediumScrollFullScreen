@@ -15,7 +15,7 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
         case Up
         case Down
     }
-    
+ 
     func detectScrollDirection(currentOffsetY: Float, previousOffsetY: Float) -> Direction {
         if currentOffsetY > previousOffsetY {
             return .Up
@@ -25,11 +25,12 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
             return .None
         }
     }
- 
+
     var delegate: MediumScrollFullScreenDelegate?
     var upThresholdY: Float?
     var downThresholdY: Float?
-    
+    var animationSpeed: NSTimeInterval?
+
     private var previousScrollDirection: Direction = .None
     private var previousOffsetY: Float?
     private var accumulatedY: Float?
@@ -45,6 +46,7 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
         self.downThresholdY = 200.0
         self.upThresholdY = 0.0
         self.forwardTarget = forwardTarget
+        self.animationSpeed = 0.01
     }
     
     func reset() {
@@ -55,9 +57,9 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         forwardTarget?.scrollViewDidScroll!(scrollView)
-        
+ 
         let currentOffsetY = Float(scrollView.contentOffset.y)
-        
+
         let currentScrollDirection = detectScrollDirection(currentOffsetY, previousOffsetY: previousOffsetY!)
         let topBoundary = -Float(scrollView.contentInset.top)
         let bottomBoundary = Float(scrollView.contentSize.height + scrollView.contentInset.bottom)
@@ -151,7 +153,7 @@ extension UIViewController {
         let viewControllerFrame = appBaseView.convertRect(appBaseView.bounds, toView: appKeyWindow)
         
         let overwrapStatusBarHeight = statusBarHeight - viewControllerFrame.origin.y
-        
+
         self.setNavigationBarOriginY(y: Float(overwrapStatusBarHeight), animated: animated)
     }
     
@@ -196,7 +198,7 @@ extension UIViewController {
         let navBarHiddenRatio = overwrapStatusBarHeight > 0 ? (overwrapStatusBarHeight - frame.origin.y) / overwrapStatusBarHeight : 0
         let alpha = max(1.0 - navBarHiddenRatio, 0.000001)
         
-        UIView.animateWithDuration(animated ? 0.1 : 0, animations: {[unowned self]() -> () in
+        UIView.animateWithDuration(animated ? 0.3 : 0, animations: {[unowned self]() -> () in
             self.navigationController!.navigationBar.frame = frame
             var index = 0
             for v in self.navigationController!.navigationBar.subviews {
@@ -246,7 +248,7 @@ extension UIViewController {
         let bottomLimit = viewHeight
         
         frame.origin.y = fmin(fmax(CGFloat(y), topLimit), bottomLimit)
-        UIView.animateWithDuration(animated ? 0.1 : 0, animations: {[unowned self]() -> () in
+        UIView.animateWithDuration(animated ? 0.3 : 0, animations: {[unowned self]() -> () in
             self.navigationController!.toolbar.frame = frame
         })
     }
@@ -283,7 +285,7 @@ extension UIViewController {
         
         frame.origin.y = fmin(fmax(y, topLimit), bottomLimit)
         
-        UIView.animateWithDuration(animated ? 0.1 : 0, animations: {[unowned self]() -> () in
+        UIView.animateWithDuration(animated ? 0.3 : 0, animations: {[unowned self]() -> () in
             self.tabBarController!.tabBar.frame = frame
         })
     }
@@ -293,4 +295,22 @@ extension UIViewController {
         viewHeight += viewSize.height
         return viewHeight
     }
+}
+
+extension UINavigationBar {
+    
+    public override func sizeThatFits(size: CGSize) -> CGSize {
+        let newSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width, 60)
+        return newSize
+    }
+    
+}
+
+extension UIToolbar {
+    
+    public override func sizeThatFits(size: CGSize) -> CGSize {
+        let newSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width, 60)
+        return newSize
+    }
+    
 }
