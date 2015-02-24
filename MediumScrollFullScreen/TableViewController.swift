@@ -30,25 +30,6 @@ class TableViewController: UITableViewController {
         icon.tintColor = UIColor.blackColor()
         navigationItem.leftBarButtonItem = icon
         
-        //var backButton = UIBarButtonItem(image: UIImage(named: "arrow"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
-        
-        //backButton.setBackgroundImage(UIImage(named: "arrow"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
-        //backButton.title = ""
-        
-        //let view = UIImageView(image: UIImage(named: "arrow")) as UIView
-        
-//        navigationItem.hidesBackButton = true
-//        navigationItem.title = ""
-//        UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "arrow"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
-        
-        //var backButton = UIBarButtonItem(customView: view)
-        
-        //navigationItem.setHidesBackButton(true, animated: false)
-        //navigationItem.backBarButtonItem = backButton
-        
-        
-//        var customButton = UIButton()
-        
         tableView.delegate = self
         tableView.dataSource = self
     }

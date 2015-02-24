@@ -202,7 +202,7 @@ extension UIViewController {
             self.navigationController!.navigationBar.frame = frame
             var index = 0
             for v in self.navigationController!.navigationBar.subviews {
-                let navView = v as UIView
+                let navView = v as! UIView
                 index++
                 if index == 1 || navView.hidden == true || navView.alpha <= 0.0 {
                     continue

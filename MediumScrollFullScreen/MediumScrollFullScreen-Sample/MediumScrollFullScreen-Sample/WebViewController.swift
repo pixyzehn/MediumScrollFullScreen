@@ -45,14 +45,24 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         var backButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
         backButton.tintColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
         navigationItem.leftBarButtonItem = backButton
-       
-        var rightButton = UIBarButtonItem(image: UIImage(named: "star"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
-        rightButton.tintColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
-        navigationItem.rightBarButtonItem = rightButton
         
-        // Toolbar
+        var rightButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        rightButton.frame = CGRectMake(0, 0, 60, 60)
+        rightButton.addTarget(self, action: "changeIcon:", forControlEvents: UIControlEvents.TouchUpInside)
+        rightButton.setImage(UIImage(named: "star_n"), forState: UIControlState.Normal)
+        rightButton.setImage(UIImage(named: "star_s"), forState: UIControlState.Selected)
+        let barItem: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = barItem
         
-        
+    }
+    
+    func changeIcon(sender: UIButton) {
+        var btn = sender
+        if btn.selected == true {
+            btn.selected = false
+        } else {
+            btn.selected = true
+        }
     }
     
     func popView() {
