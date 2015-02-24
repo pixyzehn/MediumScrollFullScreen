@@ -32,7 +32,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         scrollProxy?.downThresholdY = Float.infinity
         webView.scrollView.delegate = scrollProxy
         scrollProxy?.delegate = self as MediumScrollFullScreenDelegate
-        webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://rikei-webmemo.hateblo.jp/entry/2014/11/10/214145")!))
+        webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://nshipster.com/swift-collection-protocols/")!))
         
         let screenTap = UITapGestureRecognizer(target: self, action: "tapGesture:")
         screenTap.numberOfTapsRequired = 1
