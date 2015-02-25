@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6EB12E821A9CECB500E2552E /* MediumScrollFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB12E811A9CECB500E2552E /* MediumScrollFullScreen.swift */; };
+		6E2C6F491A9E41E50021ED9D /* MediumScrollFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C6F481A9E41E50021ED9D /* MediumScrollFullScreen.swift */; };
 		6ED7AB0E1A9C294E006AADBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED7AB0D1A9C294E006AADBB /* AppDelegate.swift */; };
 		6ED7AB101A9C294F006AADBB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED7AB0F1A9C294E006AADBB /* WebViewController.swift */; };
 		6ED7AB131A9C294F006AADBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED7AB111A9C294F006AADBB /* Main.storyboard */; };
@@ -27,7 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6EB12E811A9CECB500E2552E /* MediumScrollFullScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumScrollFullScreen.swift; sourceTree = "<group>"; };
+		6E2C6F481A9E41E50021ED9D /* MediumScrollFullScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumScrollFullScreen.swift; sourceTree = "<group>"; };
 		6ED7AB081A9C294E006AADBB /* MediumScrollFullScreen-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MediumScrollFullScreen-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED7AB0C1A9C294E006AADBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED7AB0D1A9C294E006AADBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		6EB12E831A9CECBB00E2552E /* MediumScrollFullScreen */ = {
 			isa = PBXGroup;
 			children = (
-				6EB12E811A9CECB500E2552E /* MediumScrollFullScreen.swift */,
+				6E2C6F481A9E41E50021ED9D /* MediumScrollFullScreen.swift */,
 			);
 			name = MediumScrollFullScreen;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			files = (
 				6ED7AB101A9C294F006AADBB /* WebViewController.swift in Sources */,
 				6ED7AB301A9C29B7006AADBB /* TableViewController.swift in Sources */,
-				6EB12E821A9CECB500E2552E /* MediumScrollFullScreen.swift in Sources */,
+				6E2C6F491A9E41E50021ED9D /* MediumScrollFullScreen.swift in Sources */,
 				6ED7AB0E1A9C294E006AADBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
