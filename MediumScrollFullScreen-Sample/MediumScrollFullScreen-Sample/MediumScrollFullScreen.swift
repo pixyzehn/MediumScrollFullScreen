@@ -9,13 +9,13 @@
 import UIKit
 
 class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
-
+    
     enum Direction {
         case None
         case Up
         case Down
     }
- 
+    
     func detectScrollDirection(currentOffsetY: Float, previousOffsetY: Float) -> Direction {
         if currentOffsetY > previousOffsetY {
             return .Up
@@ -25,12 +25,12 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
             return .None
         }
     }
-
+    
     var delegate: MediumScrollFullScreenDelegate?
     var upThresholdY: Float?
     var downThresholdY: Float?
     var animationSpeed: NSTimeInterval?
-
+    
     private var previousScrollDirection: Direction = .None
     private var previousOffsetY: Float?
     private var accumulatedY: Float?
@@ -39,7 +39,7 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     override init() {
         super.init()
     }
- 
+    
     convenience init(forwardTarget: UIScrollViewDelegate) {
         self.init()
         reset()
@@ -57,22 +57,22 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         forwardTarget?.scrollViewDidScroll!(scrollView)
- 
+        
         let currentOffsetY = Float(scrollView.contentOffset.y)
-
+        
         let currentScrollDirection = detectScrollDirection(currentOffsetY, previousOffsetY: previousOffsetY!)
         let topBoundary = -Float(scrollView.contentInset.top)
         let bottomBoundary = Float(scrollView.contentSize.height + scrollView.contentInset.bottom)
         
         let isOverTopBoundary = currentOffsetY <= topBoundary
         let isOverBottomBoundary = currentOffsetY >= bottomBoundary
-
+        
         let isBouncing = (isOverTopBoundary && currentScrollDirection != Direction.Down) || (isOverBottomBoundary && currentScrollDirection != Direction.Up)
         
         if (isBouncing || !scrollView.dragging) {
             return
         }
-
+        
         let deltaY = previousOffsetY! - currentOffsetY
         accumulatedY! += deltaY
         
@@ -153,7 +153,7 @@ extension UIViewController {
         let viewControllerFrame = appBaseView.convertRect(appBaseView.bounds, toView: appKeyWindow)
         
         let overwrapStatusBarHeight = statusBarHeight - viewControllerFrame.origin.y
-
+        
         self.setNavigationBarOriginY(y: Float(overwrapStatusBarHeight), animated: animated)
     }
     
@@ -209,7 +209,7 @@ extension UIViewController {
                 }
                 navView.alpha = alpha
             }
-        })
+            })
     }
     
     private func getStatusBarHeight() -> CGFloat {
@@ -250,7 +250,7 @@ extension UIViewController {
         frame.origin.y = fmin(fmax(CGFloat(y), topLimit), bottomLimit)
         UIView.animateWithDuration(animated ? 0.3 : 0, animations: {[unowned self]() -> () in
             self.navigationController!.toolbar.frame = frame
-        })
+            })
     }
     
     // TabBar
@@ -287,7 +287,7 @@ extension UIViewController {
         
         UIView.animateWithDuration(animated ? 0.3 : 0, animations: {[unowned self]() -> () in
             self.tabBarController!.tabBar.frame = frame
-        })
+            })
     }
     
     private func bottomBarViewControlleViewHeightFromViewSize(viewSize: CGSize) -> CGFloat {

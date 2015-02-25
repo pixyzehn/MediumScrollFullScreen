@@ -1,26 +1,24 @@
 //
 //  ViewController.swift
-//  MediumScrollFullScreen
+//  MediumScrollFullScreen-Sample
 //
-//  Created by pixyzehn on 2/16/15.
+//  Created by pixyzehn on 2/24/15.
 //  Copyright (c) 2015 pixyzehn. All rights reserved.
 //
 
 import UIKit
 
-class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate {
+class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestureRecognizerDelegate {
     
     enum State {
         case Showing
         case Hiding
-        case Default
     }
     
     @IBOutlet weak var webView: UIWebView!
     
     var statement: State = .Hiding
     var scrollProxy: MediumScrollFullScreen?
-    var scrollView: UIScrollView?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,8 +29,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         super.viewDidLoad()
         
         scrollProxy = MediumScrollFullScreen(forwardTarget: webView)
-        //scrollProxy?.downThresholdY = Float.infinity
-        scrollProxy?.downThresholdY = 0
+        scrollProxy?.downThresholdY = Float.infinity
         webView.scrollView.delegate = scrollProxy
         scrollProxy?.delegate = self as MediumScrollFullScreenDelegate
         webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://nshipster.com/swift-collection-protocols/")!))
@@ -71,13 +68,13 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     func popView() {
         navigationController?.popViewControllerAnimated(true)
     }
-
+    
     func tapGesture(sender: UITapGestureRecognizer) {
         if statement == .Hiding {
             if navigationController?.toolbarHidden == true {
                 UIView.animateWithDuration(0.3, animations: {[unowned self]() -> () in
                     self.navigationController!.toolbarHidden = false
-                })
+                    })
             }
             showNavigationBar(true)
             showToolbar(true)
@@ -103,13 +100,11 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         moveNavigationBar(deltaY: deltaY, animated: true)
         moveToolbar(deltaY: -deltaY, animated: true)
     }
-
+    
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float) {
-        //moveNavigationBar(deltaY: deltaY, animated: true)
-        moveNavigationBar(deltaY: -deltaY, animated: true)
-        moveToolbar(deltaY: deltaY, animated: true)
+        moveNavigationBar(deltaY: deltaY, animated: true)
     }
-
+    
     func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen) {
         hideNavigationBar(true)
         hideToolbar(true)
@@ -117,13 +112,9 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     }
     
     func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen) {
-        hideNavigationBar(true)
-        hideToolbar(true)
-        statement = .Hiding
-
-//        showNavigationBar(true)
-//        showToolbar(true)
-//        statement = .Showing
+        showNavigationBar(true)
+        showToolbar(true)
+        statement = .Showing
     }
     
 }
