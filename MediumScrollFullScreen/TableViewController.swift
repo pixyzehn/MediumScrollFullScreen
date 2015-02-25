@@ -15,17 +15,14 @@ class TableViewController: UITableViewController {
     let textCellIdentifier = "TextCell"
     
     override func viewWillLayoutSubviews() {
-        navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
-        navigationController?.toolbar.backgroundColor = UIColor.whiteColor()
         navigationController?.setToolbarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Home"
         
-        var icon: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu")
+        let icon: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu")
         icon.imageInsets = UIEdgeInsetsMake(-10, 0, 0, 0)
         icon.tintColor = UIColor.blackColor()
         navigationItem.leftBarButtonItem = icon
@@ -35,7 +32,7 @@ class TableViewController: UITableViewController {
     }
     
     func showMenu() {
-        
+        println("Show Menu!")
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
