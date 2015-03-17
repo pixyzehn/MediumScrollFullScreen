@@ -13,9 +13,15 @@ MediumScrollFullScreen is really similar to menu in scroll of real Medium for iO
 
 In reference to [NJKScrollFullScreen](https://github.com/ninjinkun/NJKScrollFullScreen), I implemented MediumScrollFullScreen.
 
-## Install
+##Installation
 
-1. Add the MediumScrollFullScreen (including MediumScrollFullScreen.swift) folder into your project.
+1. The easiest way to get started is to use [CocoaPods](http://cocoapods.org/). Add the following line to your Podfile:
+
+```ruby
+use_frameworks!
+# The following is a Library of Swift.
+pod 'MediumScrollFullScreen'
+```
 
 2. Delete status bar by editting info.plist.
 

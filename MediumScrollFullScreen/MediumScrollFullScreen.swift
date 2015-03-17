@@ -46,7 +46,7 @@ class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
         self.downThresholdY = 0.0
         self.forwardTarget  = forwardTarget
     }
-    
+        
     func reset() {
         previousOffsetY         = 0.0
         accumulatedY            = 0.0
