@@ -21,6 +21,8 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
+
+        //self.navigationController?.navigationBar.translucent = false
         
         let icon: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu")
         icon.imageInsets = UIEdgeInsetsMake(-10, 0, 0, 0)

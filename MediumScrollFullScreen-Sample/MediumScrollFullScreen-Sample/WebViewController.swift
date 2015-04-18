@@ -51,7 +51,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         backButton.tintColor = menuColor
         navigationItem.leftBarButtonItem = backButton
         
-        let rightButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        let rightButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         rightButton.frame = CGRectMake(0, 0, 60, 60)
         rightButton.addTarget(self, action: "changeIcon:", forControlEvents: UIControlEvents.TouchUpInside)
         rightButton.setImage(UIImage(named: "star_n"), forState: UIControlState.Normal)
@@ -59,7 +59,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         let barItem: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = barItem
         
-        let favButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        let favButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         favButton.frame = CGRectMake(0, 0, 60, 60)
         favButton.addTarget(self, action: "changeIcon:", forControlEvents: UIControlEvents.TouchUpInside)
         favButton.setImage(UIImage(named: "fav_n"), forState: UIControlState.Normal)
@@ -84,11 +84,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     
     func changeIcon(sender: UIButton) {
         let btn = sender
-        if btn.selected == true {
-            btn.selected = false
-        } else {
-            btn.selected = true
-        }
+        btn.selected = !btn.selected
     }
     
     func popView() {
@@ -125,11 +121,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     // MediumMenuInFullScreenDelegate
     
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float, userInteractionEnabled enabled: Bool) {
-        if enabled {
-            enableTap = false
-        } else {
-            enableTap = true
-        }
+        enableTap = enabled ? false : true;
         moveNavigationBar(deltaY: deltaY, animated: true)
         moveToolbar(deltaY: -deltaY, animated: true)
     }
