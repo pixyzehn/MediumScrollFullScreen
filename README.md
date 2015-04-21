@@ -30,6 +30,23 @@ Then, run the following command:
 pod install
 ```
 
+Or [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate MediumScrollFullScreen into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "pixyzehn/MediumScrollFullScreen"
+```
+
+Or add the MediumScrollFullScreen (including MediumScrollFullScreen.swift) folder into your project.
+
 2. Delete status bar by editting info.plist.
 
 Add "View controller-based status bar appearance", "Status bar is initially hidden" in your Information Property List. Each value of these key is "NO", "YES".

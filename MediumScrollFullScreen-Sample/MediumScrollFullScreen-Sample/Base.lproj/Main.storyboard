@@ -53,17 +53,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="A2r-wC-zvE" secondAttribute="bottom" id="Luj-ib-ieU"/>
                             <constraint firstItem="A2r-wC-zvE" firstAttribute="leading" secondItem="pMv-vT-J3E" secondAttribute="leading" id="Ol0-PJ-L0M"/>
                             <constraint firstAttribute="trailing" secondItem="A2r-wC-zvE" secondAttribute="trailing" id="YYl-m3-pcc"/>
-                            <constraint firstAttribute="bottom" secondItem="A2r-wC-zvE" secondAttribute="bottom" id="ieH-83-1s5"/>
                             <constraint firstItem="A2r-wC-zvE" firstAttribute="top" secondItem="pMv-vT-J3E" secondAttribute="top" id="lKA-re-K2M"/>
-                            <constraint firstItem="ULi-2u-7Uv" firstAttribute="top" secondItem="A2r-wC-zvE" secondAttribute="bottom" id="nFd-zu-EgA"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="nFd-zu-EgA"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="webView" destination="A2r-wC-zvE" id="cwH-cJ-TGg"/>

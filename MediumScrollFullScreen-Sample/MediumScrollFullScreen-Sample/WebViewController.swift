@@ -23,7 +23,6 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     var enableTap: Bool = false
     
     override func viewWillAppear(animated: Bool) {
-        
         super.viewWillAppear(animated)
         hideToolbar()
     }
@@ -84,13 +83,11 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     }
     
     func changeIcon(sender: UIButton) {
-        
         let btn = sender
         btn.selected = !btn.selected
     }
     
     func popView() {
-        
         navigationController?.popViewControllerAnimated(true)
     }
     
@@ -125,14 +122,12 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     // MARK:MediumMenuInFullScreenDelegate
     
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float, userInteractionEnabled enabled: Bool) {
-        
         enableTap = enabled ? false : true;
         moveNavigationBar(deltaY: deltaY)
         moveToolbar(deltaY: -deltaY)
     }
     
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float, userInteractionEnabled enabled: Bool) {
-        
         if enabled {
             enableTap = false
             moveNavigationBar(deltaY: deltaY)
@@ -145,14 +140,12 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     }
     
     func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen, userInteractionEnabled enabled: Bool) {
-        
         hideNavigationBar()
         hideToolbar()
         statement = .Hiding
     }
     
     func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen, userInteractionEnabled enabled: Bool) {
-        
         if enabled {
             showNavigationBar()
             hideToolbar()
