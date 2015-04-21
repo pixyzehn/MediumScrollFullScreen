@@ -65,7 +65,7 @@ Delete status bar by editting info.plist.
 
 Add "View controller-based status bar appearance", "Status bar is initially hidden" in your Information Property List. Each value of these key is "NO", "YES".
 
-You have to make a change to a specific file.
+You have to make a change to a specific file.
 (In sample case, a specific file is WebViewController.swift.)
 
 Refer to MediumScrollFullScreen-Sample project.
