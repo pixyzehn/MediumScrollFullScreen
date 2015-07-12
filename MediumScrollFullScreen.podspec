@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "MediumScrollFullScreen"
-  s.version = "1.0.4"
+  s.version = "1.0.5"
   s.summary = "Medium's upper and lower Menu in Scroll."
   s.homepage = 'https://github.com/pixyzehn/MediumScrollFullScreen'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
