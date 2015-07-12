@@ -8,8 +8,7 @@
 
 import UIKit
 
-public class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
-    
+public class MediumScrollFullScreen: NSObject {
     public enum Direction {
         case None
         case Up
@@ -30,10 +29,11 @@ public class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     public var upThresholdY: Float = 0.0
     public var downThresholdY: Float = 0.0
     public var forwardTarget: UIScrollViewDelegate?
+
     private var previousScrollDirection: Direction = .None
     private var previousOffsetY: Float = 0.0
     private var accumulatedY: Float = 0.0
-    
+
     override public init() {
         super.init()
     }
@@ -42,9 +42,10 @@ public class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
         self.init()
         self.forwardTarget = forwardTarget
     }
-    
+}
+
+extension MediumScrollFullScreen: UIScrollViewDelegate{
     public func scrollViewDidScroll(scrollView: UIScrollView) {
-        
         forwardTarget?.scrollViewDidScroll!(scrollView)
         let currentOffsetY = Float(scrollView.contentOffset.y)
         let currentScrollDirection = detectScrollDirection(currentOffsetY, previousOffsetY: previousOffsetY)
@@ -95,7 +96,6 @@ public class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     }
     
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
         forwardTarget?.scrollViewDidEndDragging!(scrollView, willDecelerate: decelerate)
         let currentOffsetY = Float(scrollView.contentOffset.y)
         let topBoundary = -Float(scrollView.contentInset.top)
@@ -129,6 +129,7 @@ public class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
     }
 }
 
+
 @objc public protocol MediumScrollFullScreenDelegate {
     optional func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float, userInteractionEnabled enabled: Bool)
     optional func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float, userInteractionEnabled enabled: Bool)
@@ -137,11 +138,9 @@ public class MediumScrollFullScreen: NSObject, UIScrollViewDelegate {
 }
 
 public extension UIViewController {
-    
     // MARK: NavigationBar
     
     public func showNavigationBar() {
-        
         let statusBarHeight = getStatusBarHeight()
         
         let appKeyWindow = UIApplication.sharedApplication().keyWindow!
@@ -150,11 +149,10 @@ public extension UIViewController {
         
         let overwrapStatusBarHeight = statusBarHeight - viewControllerFrame.origin.y
         
-        self.setNavigationBarOriginY(y: Float(overwrapStatusBarHeight))
+        setNavigationBarOriginY(Float(overwrapStatusBarHeight))
     }
     
     public func hideNavigationBar() {
-        
         let statusBarHeight = getStatusBarHeight()
         
         let appKeyWindow = UIApplication.sharedApplication().keyWindow!
@@ -164,19 +162,17 @@ public extension UIViewController {
         let overwrapStatusBarHeight = statusBarHeight - viewControllerFrame.origin.y
         
         let navigationBarHeight = navigationController!.navigationBar.frame.size.height
-        let top = -navigationBarHeight
         
-        self.setNavigationBarOriginY(y: Float(top))
+        setNavigationBarOriginY(Float(-navigationBarHeight))
     }
     
     public func moveNavigationBar(#deltaY: Float) {
         let frame = navigationController!.navigationBar.frame
         let nextY = frame.origin.y + CGFloat(deltaY)
-        self.setNavigationBarOriginY(y: Float(nextY))
+        setNavigationBarOriginY(Float(nextY))
     }
     
-    public func setNavigationBarOriginY(#y: Float) {
-        
+    public func setNavigationBarOriginY(y: Float) {
         let statusBarHeight = getStatusBarHeight()
         
         let appKeyWindow = UIApplication.sharedApplication().keyWindow!
@@ -211,7 +207,7 @@ public extension UIViewController {
     }
     
     private func getStatusBarHeight() -> CGFloat {
-        var statusBarFrameSize = UIApplication.sharedApplication().statusBarFrame.size
+        let statusBarFrameSize = UIApplication.sharedApplication().statusBarFrame.size
         return statusBarFrameSize.height
     }
     
@@ -237,7 +233,6 @@ public extension UIViewController {
     }
     
     public func setToolbarOriginY(#y: Float) {
-        
         var frame = navigationController!.toolbar.frame
         let toolBarHeight = frame.size.height
         let viewSize = navigationController!.view.frame.size

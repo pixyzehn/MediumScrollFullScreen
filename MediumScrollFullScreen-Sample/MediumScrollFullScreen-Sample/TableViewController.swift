@@ -17,16 +17,15 @@ class TableViewController: UITableViewController {
     override func viewWillLayoutSubviews() {
         navigationController?.setToolbarHidden(true, animated: false)
     }
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
  
-        let icon: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu")
+        let icon = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: .Plain, target: self, action: "showMenu")
         icon.imageInsets = UIEdgeInsetsMake(-10, 0, 0, 0)
         icon.tintColor = UIColor.blackColor()
         navigationItem.leftBarButtonItem = icon
-        
+
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -44,9 +43,8 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        let row = indexPath.row
-        cell.textLabel?.text = array[row]
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.text = array[indexPath.row]
         return cell
     }
     

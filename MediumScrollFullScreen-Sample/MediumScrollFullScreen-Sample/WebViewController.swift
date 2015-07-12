@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGestureRecognizerDelegate {
+class WebViewController: UIViewController {
     
     enum State {
         case Showing
@@ -20,7 +20,7 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     var statement: State = .Hiding
     var scrollProxy: MediumScrollFullScreen?
     var scrollView: UIScrollView?
-    var enableTap: Bool = false
+    var enableTap = false
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,7 +28,6 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         scrollProxy = MediumScrollFullScreen(forwardTarget: webView)
         webView.scrollView.delegate = scrollProxy
@@ -36,55 +35,50 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
         webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://nshipster.com/swift-collection-protocols/")!))
         
         let screenTap = UITapGestureRecognizer(target: self, action: "tapGesture:")
-        screenTap.numberOfTapsRequired = 1
         screenTap.delegate = self
         webView.addGestureRecognizer(screenTap)
         
         // Add temporary item
         
-        title = "Title"
         navigationItem.hidesBackButton = true
         
         let menuColor = UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: UIBarButtonItemStyle.Plain, target: self, action: "popView")
+        let backButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: .Plain, target: self, action: "popView")
         backButton.tintColor = menuColor
         navigationItem.leftBarButtonItem = backButton
         
-        let rightButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let rightButton = UIButton.buttonWithType(.Custom) as! UIButton
         rightButton.frame = CGRectMake(0, 0, 60, 60)
-        rightButton.addTarget(self, action: "changeIcon:", forControlEvents: UIControlEvents.TouchUpInside)
-        rightButton.setImage(UIImage(named: "star_n"), forState: UIControlState.Normal)
-        rightButton.setImage(UIImage(named: "star_s"), forState: UIControlState.Selected)
-        let barItem: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
-        navigationItem.rightBarButtonItem = barItem
+        rightButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
+        rightButton.setImage(UIImage(named: "star_n"), forState: .Normal)
+        rightButton.setImage(UIImage(named: "star_s"), forState: .Selected)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
-        let favButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let favButton = UIButton.buttonWithType(.Custom) as! UIButton
         favButton.frame = CGRectMake(0, 0, 60, 60)
-        favButton.addTarget(self, action: "changeIcon:", forControlEvents: UIControlEvents.TouchUpInside)
-        favButton.setImage(UIImage(named: "fav_n"), forState: UIControlState.Normal)
-        favButton.setImage(UIImage(named: "fav_s"), forState: UIControlState.Selected)
+        favButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
+        favButton.setImage(UIImage(named: "fav_n"), forState: .Normal)
+        favButton.setImage(UIImage(named: "fav_s"), forState: .Selected)
         let toolItem: UIBarButtonItem = UIBarButtonItem(customView: favButton)
         
         let timeLabel = UILabel(frame: CGRectMake(0, 0, 100, 20))
-        timeLabel.text = "? min left"
+        timeLabel.text = "?? min left"
         timeLabel.textAlignment = .Center
         timeLabel.tintColor = menuColor
-        let timeView = timeLabel as UIView
-        let timeButton = UIBarButtonItem(customView: timeView)
+        let timeButton = UIBarButtonItem(customView: timeLabel as UIView)
         
-        let actionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: nil, action: nil)
+        let actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: nil, action: nil)
         actionButton.tintColor = menuColor
         
-        let gap = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let fixedSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        let gap = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let fixedSpace = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         fixedSpace.width = 20
         toolbarItems = [toolItem, gap, timeButton, gap, actionButton, fixedSpace]
     }
     
     func changeIcon(sender: UIButton) {
-        let btn = sender
-        btn.selected = !btn.selected
+        sender.selected = !sender.selected
     }
     
     func popView() {
@@ -92,35 +86,38 @@ class WebViewController: UIViewController, MediumScrollFullScreenDelegate, UIGes
     }
     
     func tapGesture(sender: UITapGestureRecognizer) {
-        
-        if enableTap {
-            if statement == .Hiding {
-                if navigationController?.toolbarHidden == true {
-                    UIView.animateWithDuration(0.3, animations: {[unowned self]() -> () in
-                        self.navigationController?.toolbarHidden = false
+        if !enableTap {
+            return
+        }
+        if statement == .Hiding {
+            if navigationController?.toolbarHidden == true {
+                UIView.animateWithDuration(0.3, animations: {[unowned self]() -> () in
+                    self.navigationController?.toolbarHidden = false
                     })
-                }
-                showNavigationBar()
-                showToolbar()
-                statement = .Showing
-            } else {
-                hideNavigationBar()
-                hideToolbar()
-                statement = .Hiding
             }
+            showNavigationBar()
+            showToolbar()
+            statement = .Showing
+        } else {
+            hideNavigationBar()
+            hideToolbar()
+            statement = .Hiding
         }
     }
-    
+}
+
+extension WebViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    
-    // MARK:MediumMenuInFullScreenDelegate
-    
+}
+
+extension WebViewController: MediumScrollFullScreenDelegate {
     func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float, userInteractionEnabled enabled: Bool) {
         enableTap = enabled ? false : true;
         moveNavigationBar(deltaY: deltaY)
