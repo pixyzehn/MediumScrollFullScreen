@@ -24,11 +24,11 @@ class WebViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        hideToolbar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         scrollProxy = MediumScrollFullScreen(forwardTarget: webView)
         webView.scrollView.delegate = scrollProxy
         scrollProxy?.delegate = self as MediumScrollFullScreenDelegate
@@ -89,28 +89,20 @@ class WebViewController: UIViewController {
         if !enableTap {
             return
         }
+
         if statement == .Hiding {
-            if navigationController?.toolbarHidden == true {
-                UIView.animateWithDuration(0.3, animations: {[unowned self]() -> () in
-                    self.navigationController?.toolbarHidden = false
-                    })
-            }
+            statement = .Showing
             showNavigationBar()
             showToolbar()
-            statement = .Showing
         } else {
+            statement = .Hiding
             hideNavigationBar()
             hideToolbar()
-            statement = .Hiding
         }
     }
 }
 
 extension WebViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,
         shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -118,39 +110,38 @@ extension WebViewController: UIGestureRecognizerDelegate {
 }
 
 extension WebViewController: MediumScrollFullScreenDelegate {
-    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float, userInteractionEnabled enabled: Bool) {
-        enableTap = enabled ? false : true;
+    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: CGFloat, userInteractionEnabled enabled: Bool) {
+        enableTap = enabled ? false : true
         moveNavigationBar(deltaY: deltaY)
         moveToolbar(deltaY: -deltaY)
     }
     
-    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float, userInteractionEnabled enabled: Bool) {
+    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: CGFloat, userInteractionEnabled enabled: Bool) {
+        enableTap = enabled ? false : true
         if enabled {
-            enableTap = false
             moveNavigationBar(deltaY: deltaY)
             hideToolbar()
         } else {
-            enableTap = true
             moveNavigationBar(deltaY: -deltaY)
             moveToolbar(deltaY: deltaY)
         }
     }
     
     func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen, userInteractionEnabled enabled: Bool) {
+        statement = .Hiding
         hideNavigationBar()
         hideToolbar()
-        statement = .Hiding
     }
     
     func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen, userInteractionEnabled enabled: Bool) {
         if enabled {
+            statement = .Showing
             showNavigationBar()
             hideToolbar()
-            statement = .Showing
         } else {
+            statement = .Hiding
             hideNavigationBar()
             hideToolbar()
-            statement = .Hiding
         }
     }
 }
