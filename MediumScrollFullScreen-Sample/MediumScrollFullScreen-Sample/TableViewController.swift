@@ -31,7 +31,7 @@ class TableViewController: UITableViewController {
     }
     
     func showMenu() {
-        println("Show Menu!")
+        print("Show Menu!")
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -48,14 +48,14 @@ class WebViewController: UIViewController {
         backButton.tintColor = menuColor
         navigationItem.leftBarButtonItem = backButton
         
-        let rightButton = UIButton.buttonWithType(.Custom) as! UIButton
+        let rightButton = UIButton(type: .Custom)
         rightButton.frame = CGRectMake(0, 0, 60, 60)
         rightButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
         rightButton.setImage(UIImage(named: "star_n"), forState: .Normal)
         rightButton.setImage(UIImage(named: "star_s"), forState: .Selected)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
-        let favButton = UIButton.buttonWithType(.Custom) as! UIButton
+        let favButton = UIButton(type: .Custom)
         favButton.frame = CGRectMake(0, 0, 60, 60)
         favButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
         favButton.setImage(UIImage(named: "fav_n"), forState: .Normal)

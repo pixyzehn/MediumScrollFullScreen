@@ -152,20 +152,11 @@ public extension UIViewController {
     }
     
     public func hideNavigationBar() {
-        let statusBarHeight = getStatusBarHeight()
-        
-        let appKeyWindow = UIApplication.sharedApplication().keyWindow!
-        let appBaseView = appKeyWindow.rootViewController!.view
-        let viewControllerFrame = appBaseView.convertRect(appBaseView.bounds, toView: appKeyWindow)
-        
-        let overwrapStatusBarHeight = statusBarHeight - viewControllerFrame.origin.y
-        
         let navigationBarHeight = navigationController!.navigationBar.frame.size.height
-        
         setNavigationBarOriginY(-navigationBarHeight)
     }
     
-    public func moveNavigationBar(#deltaY: CGFloat) {
+    public func moveNavigationBar(deltaY deltaY: CGFloat) {
         let frame = navigationController!.navigationBar.frame
         let nextY = frame.origin.y + deltaY
         setNavigationBarOriginY(nextY)
@@ -195,7 +186,7 @@ public extension UIViewController {
             self.navigationController!.navigationBar.frame = frame
             var index = 0
             for v in self.navigationController!.navigationBar.subviews {
-                let navView = v as! UIView
+                let navView = v 
                 index++
                 if index == 1 || navView.hidden == true || navView.alpha <= 0.0 {
                     continue
@@ -228,13 +219,13 @@ public extension UIViewController {
         setToolbarOriginY(y: viewHeight)
     }
     
-    public func moveToolbar(#deltaY: CGFloat) {
+    public func moveToolbar(deltaY deltaY: CGFloat) {
         let frame = navigationController!.toolbar.frame
         let nextY = frame.origin.y + deltaY
         setToolbarOriginY(y: nextY)
     }
     
-    public func setToolbarOriginY(#y: CGFloat) {
+    public func setToolbarOriginY(y y: CGFloat) {
         var frame = navigationController!.toolbar.frame
         let toolBarHeight = frame.size.height
         let viewSize = navigationController!.view.frame.size
