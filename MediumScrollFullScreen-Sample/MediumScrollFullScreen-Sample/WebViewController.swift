@@ -22,10 +22,6 @@ class WebViewController: UIViewController {
     var scrollView: UIScrollView?
     var enableTap = false
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +34,7 @@ class WebViewController: UIViewController {
         screenTap.delegate = self
         webView.addGestureRecognizer(screenTap)
         
-        // Add temporary item
+        // NOTE: Add temporary item
         
         navigationItem.hidesBackButton = true
         

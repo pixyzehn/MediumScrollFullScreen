@@ -10,9 +10,12 @@ import UIKit
 
 class TableViewController: UITableViewController {
    
-    let array = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity", "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
-    
-    let textCellIdentifier = "TextCell"
+    let array = [
+        "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot",
+        "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity",
+        "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot",
+        "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity",
+    ]
     
     override func viewWillLayoutSubviews() {
         navigationController?.setToolbarHidden(true, animated: false)
@@ -25,9 +28,6 @@ class TableViewController: UITableViewController {
         icon.imageInsets = UIEdgeInsetsMake(-10, 0, 0, 0)
         icon.tintColor = UIColor.blackColor()
         navigationItem.leftBarButtonItem = icon
-
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     func showMenu() {
