@@ -9,30 +9,29 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
-    let array = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity", "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
-    
-    let textCellIdentifier = "TextCell"
+   
+    let array = [
+        "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot",
+        "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity",
+        "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot",
+        "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity",
+    ]
     
     override func viewWillLayoutSubviews() {
         navigationController?.setToolbarHidden(true, animated: false)
     }
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
-        
-        let icon: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu")
+ 
+        let icon = UIBarButtonItem(image: UIImage(named: "medium_icon"), style: .Plain, target: self, action: "showMenu")
         icon.imageInsets = UIEdgeInsetsMake(-10, 0, 0, 0)
         icon.tintColor = UIColor.blackColor()
         navigationItem.leftBarButtonItem = icon
-        
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     func showMenu() {
-        println("Show Menu!")
+        print("Show Menu!")
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -44,16 +43,12 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        
-        let row = indexPath.row
-        cell.textLabel?.text = array[row]
-        
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.text = array[indexPath.row]
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         performSegueWithIdentifier("show",sender: nil)
     }
-    
 }

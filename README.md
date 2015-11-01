@@ -15,7 +15,10 @@ In reference to [NJKScrollFullScreen](https://github.com/ninjinkun/NJKScrollFull
 
 ##Installation
 
-1. The easiest way to get started is to use [CocoaPods](http://cocoapods.org/). Add the following line to your Podfile:
+###Cocoapods
+
+
+The easiest way to get started is to use [CocoaPods](http://cocoapods.org/). Add the following line to your Podfile:
 
 ```ruby
 platform :ios, '8.0'
@@ -30,11 +33,40 @@ Then, run the following command:
 pod install
 ```
 
-2. Delete status bar by editting info.plist.
+###Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate MediumScrollFullScreen into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "pixyzehn/MediumScrollFullScreen"
+```
+
+Run `carthage update`.
+
+```bash
+$ carthage update
+```
+###Other
+
+Add the MediumScrollFullScreen (including MediumScrollFullScreen.swift) folder into your project.
+
+---
+
+Delete status bar by editting info.plist.
 
 Add "View controller-based status bar appearance", "Status bar is initially hidden" in your Information Property List. Each value of these key is "NO", "YES".
 
-3. You have to make a change to a specific file. (In sample case, a specific file is WebViewController.swift.)
+You have to make a change to a specific file.
+(In sample case, a specific file is WebViewController.swift.)
 
 Refer to MediumScrollFullScreen-Sample project.
 

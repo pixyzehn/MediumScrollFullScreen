@@ -14,6 +14,12 @@
 		6ED7AB151A9C294F006AADBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED7AB141A9C294F006AADBB /* Images.xcassets */; };
 		6ED7AB241A9C294F006AADBB /* MediumScrollFullScreen_SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED7AB231A9C294F006AADBB /* MediumScrollFullScreen_SampleTests.swift */; };
 		6ED7AB301A9C29B7006AADBB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED7AB2F1A9C29B7006AADBB /* TableViewController.swift */; };
+		BFB676D71AE6A422007DC28B /* MediumScrollFullScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = BFB676D61AE6A422007DC28B /* MediumScrollFullScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFB676DD1AE6A422007DC28B /* MediumScrollFullScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB676D21AE6A422007DC28B /* MediumScrollFullScreen.framework */; };
+		BFB676E61AE6A422007DC28B /* MediumScrollFullScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB676E51AE6A422007DC28B /* MediumScrollFullScreenTests.swift */; };
+		BFB676E91AE6A422007DC28B /* MediumScrollFullScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB676D21AE6A422007DC28B /* MediumScrollFullScreen.framework */; };
+		BFB676EB1AE6A422007DC28B /* MediumScrollFullScreen.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB676D21AE6A422007DC28B /* MediumScrollFullScreen.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFB676F21AE6A44E007DC28B /* MediumScrollFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E92A5881AB8682A006BE08A /* MediumScrollFullScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +30,42 @@
 			remoteGlobalIDString = 6ED7AB071A9C294E006AADBB;
 			remoteInfo = "MediumScrollFullScreen-Sample";
 		};
+		BFB676DE1AE6A422007DC28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ED7AB001A9C294E006AADBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFB676D11AE6A422007DC28B;
+			remoteInfo = MediumScrollFullScreen;
+		};
+		BFB676E01AE6A422007DC28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ED7AB001A9C294E006AADBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ED7AB071A9C294E006AADBB;
+			remoteInfo = "MediumScrollFullScreen-Sample";
+		};
+		BFB676E71AE6A422007DC28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ED7AB001A9C294E006AADBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFB676D11AE6A422007DC28B;
+			remoteInfo = MediumScrollFullScreen;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BFB676EA1AE6A422007DC28B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BFB676EB1AE6A422007DC28B /* MediumScrollFullScreen.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6E92A5881AB8682A006BE08A /* MediumScrollFullScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediumScrollFullScreen.swift; path = ../../MediumScrollFullScreen/MediumScrollFullScreen.swift; sourceTree = "<group>"; };
@@ -38,6 +79,12 @@
 		6ED7AB221A9C294F006AADBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED7AB231A9C294F006AADBB /* MediumScrollFullScreen_SampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumScrollFullScreen_SampleTests.swift; sourceTree = "<group>"; };
 		6ED7AB2F1A9C29B7006AADBB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BFB676D21AE6A422007DC28B /* MediumScrollFullScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediumScrollFullScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB676D51AE6A422007DC28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB676D61AE6A422007DC28B /* MediumScrollFullScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediumScrollFullScreen.h; sourceTree = "<group>"; };
+		BFB676DC1AE6A422007DC28B /* MediumScrollFullScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediumScrollFullScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB676E41AE6A422007DC28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB676E51AE6A422007DC28B /* MediumScrollFullScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumScrollFullScreenTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB676E91AE6A422007DC28B /* MediumScrollFullScreen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +100,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB676CE1AE6A422007DC28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB676D91AE6A422007DC28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB676DD1AE6A422007DC28B /* MediumScrollFullScreen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +134,8 @@
 			children = (
 				6ED7AB0A1A9C294E006AADBB /* MediumScrollFullScreen-Sample */,
 				6ED7AB201A9C294F006AADBB /* MediumScrollFullScreen-SampleTests */,
+				BFB676D31AE6A422007DC28B /* MediumScrollFullScreen */,
+				BFB676E21AE6A422007DC28B /* MediumScrollFullScreenTests */,
 				6ED7AB091A9C294E006AADBB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +145,8 @@
 			children = (
 				6ED7AB081A9C294E006AADBB /* MediumScrollFullScreen-Sample.app */,
 				6ED7AB1D1A9C294F006AADBB /* MediumScrollFullScreen-SampleTests.xctest */,
+				BFB676D21AE6A422007DC28B /* MediumScrollFullScreen.framework */,
+				BFB676DC1AE6A422007DC28B /* MediumScrollFullScreenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +190,52 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BFB676D31AE6A422007DC28B /* MediumScrollFullScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BFB676D61AE6A422007DC28B /* MediumScrollFullScreen.h */,
+				BFB676D41AE6A422007DC28B /* Supporting Files */,
+			);
+			path = MediumScrollFullScreen;
+			sourceTree = "<group>";
+		};
+		BFB676D41AE6A422007DC28B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFB676D51AE6A422007DC28B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFB676E21AE6A422007DC28B /* MediumScrollFullScreenTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFB676E51AE6A422007DC28B /* MediumScrollFullScreenTests.swift */,
+				BFB676E31AE6A422007DC28B /* Supporting Files */,
+			);
+			path = MediumScrollFullScreenTests;
+			sourceTree = "<group>";
+		};
+		BFB676E31AE6A422007DC28B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFB676E41AE6A422007DC28B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BFB676CF1AE6A422007DC28B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB676D71AE6A422007DC28B /* MediumScrollFullScreen.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		6ED7AB071A9C294E006AADBB /* MediumScrollFullScreen-Sample */ = {
@@ -133,10 +245,12 @@
 				6ED7AB041A9C294E006AADBB /* Sources */,
 				6ED7AB051A9C294E006AADBB /* Frameworks */,
 				6ED7AB061A9C294E006AADBB /* Resources */,
+				BFB676EA1AE6A422007DC28B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BFB676E81AE6A422007DC28B /* PBXTargetDependency */,
 			);
 			name = "MediumScrollFullScreen-Sample";
 			productName = "MediumScrollFullScreen-Sample";
@@ -161,19 +275,65 @@
 			productReference = 6ED7AB1D1A9C294F006AADBB /* MediumScrollFullScreen-SampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BFB676D11AE6A422007DC28B /* MediumScrollFullScreen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFB676F01AE6A422007DC28B /* Build configuration list for PBXNativeTarget "MediumScrollFullScreen" */;
+			buildPhases = (
+				BFB676CD1AE6A422007DC28B /* Sources */,
+				BFB676CE1AE6A422007DC28B /* Frameworks */,
+				BFB676CF1AE6A422007DC28B /* Headers */,
+				BFB676D01AE6A422007DC28B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MediumScrollFullScreen;
+			productName = MediumScrollFullScreen;
+			productReference = BFB676D21AE6A422007DC28B /* MediumScrollFullScreen.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BFB676DB1AE6A422007DC28B /* MediumScrollFullScreenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFB676F11AE6A422007DC28B /* Build configuration list for PBXNativeTarget "MediumScrollFullScreenTests" */;
+			buildPhases = (
+				BFB676D81AE6A422007DC28B /* Sources */,
+				BFB676D91AE6A422007DC28B /* Frameworks */,
+				BFB676DA1AE6A422007DC28B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFB676DF1AE6A422007DC28B /* PBXTargetDependency */,
+				BFB676E11AE6A422007DC28B /* PBXTargetDependency */,
+			);
+			name = MediumScrollFullScreenTests;
+			productName = MediumScrollFullScreenTests;
+			productReference = BFB676DC1AE6A422007DC28B /* MediumScrollFullScreenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6ED7AB001A9C294E006AADBB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = pixyzehn;
 				TargetAttributes = {
 					6ED7AB071A9C294E006AADBB = {
 						CreatedOnToolsVersion = 6.3;
 					};
 					6ED7AB1C1A9C294F006AADBB = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 6ED7AB071A9C294E006AADBB;
+					};
+					BFB676D11AE6A422007DC28B = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					BFB676DB1AE6A422007DC28B = {
 						CreatedOnToolsVersion = 6.3;
 						TestTargetID = 6ED7AB071A9C294E006AADBB;
 					};
@@ -194,6 +354,8 @@
 			targets = (
 				6ED7AB071A9C294E006AADBB /* MediumScrollFullScreen-Sample */,
 				6ED7AB1C1A9C294F006AADBB /* MediumScrollFullScreen-SampleTests */,
+				BFB676D11AE6A422007DC28B /* MediumScrollFullScreen */,
+				BFB676DB1AE6A422007DC28B /* MediumScrollFullScreenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +371,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6ED7AB1B1A9C294F006AADBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB676D01AE6A422007DC28B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB676DA1AE6A422007DC28B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -237,6 +413,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFB676CD1AE6A422007DC28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB676F21AE6A44E007DC28B /* MediumScrollFullScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFB676D81AE6A422007DC28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB676E61AE6A422007DC28B /* MediumScrollFullScreenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -244,6 +436,21 @@
 			isa = PBXTargetDependency;
 			target = 6ED7AB071A9C294E006AADBB /* MediumScrollFullScreen-Sample */;
 			targetProxy = 6ED7AB1E1A9C294F006AADBB /* PBXContainerItemProxy */;
+		};
+		BFB676DF1AE6A422007DC28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFB676D11AE6A422007DC28B /* MediumScrollFullScreen */;
+			targetProxy = BFB676DE1AE6A422007DC28B /* PBXContainerItemProxy */;
+		};
+		BFB676E11AE6A422007DC28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6ED7AB071A9C294E006AADBB /* MediumScrollFullScreen-Sample */;
+			targetProxy = BFB676E01AE6A422007DC28B /* PBXContainerItemProxy */;
+		};
+		BFB676E81AE6A422007DC28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFB676D11AE6A422007DC28B /* MediumScrollFullScreen */;
+			targetProxy = BFB676E71AE6A422007DC28B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -280,6 +487,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -344,6 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MediumScrollFullScreen-Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -354,6 +563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MediumScrollFullScreen-Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -362,16 +572,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MediumScrollFullScreen-SampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediumScrollFullScreen-Sample.app/MediumScrollFullScreen-Sample";
 			};
@@ -381,12 +589,92 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "MediumScrollFullScreen-SampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediumScrollFullScreen-Sample.app/MediumScrollFullScreen-Sample";
+			};
+			name = Release;
+		};
+		BFB676EC1AE6A422007DC28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MediumScrollFullScreen/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BFB676ED1AE6A422007DC28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MediumScrollFullScreen/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BFB676EE1AE6A422007DC28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MediumScrollFullScreenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediumScrollFullScreen-Sample.app/MediumScrollFullScreen-Sample";
+			};
+			name = Debug;
+		};
+		BFB676EF1AE6A422007DC28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MediumScrollFullScreenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pixyzehn.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediumScrollFullScreen-Sample.app/MediumScrollFullScreen-Sample";
 			};
@@ -418,6 +706,24 @@
 			buildConfigurations = (
 				6ED7AB2B1A9C294F006AADBB /* Debug */,
 				6ED7AB2C1A9C294F006AADBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFB676F01AE6A422007DC28B /* Build configuration list for PBXNativeTarget "MediumScrollFullScreen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB676EC1AE6A422007DC28B /* Debug */,
+				BFB676ED1AE6A422007DC28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFB676F11AE6A422007DC28B /* Build configuration list for PBXNativeTarget "MediumScrollFullScreenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFB676EE1AE6A422007DC28B /* Debug */,
+				BFB676EF1AE6A422007DC28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
