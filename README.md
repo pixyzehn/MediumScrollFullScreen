@@ -15,7 +15,7 @@ In reference to [NJKScrollFullScreen](https://github.com/ninjinkun/NJKScrollFull
 
 ##Installation
 
-###Cocoapods
+###CocoaPods
 
 
 The easiest way to get started is to use [CocoaPods](http://cocoapods.org/). Add the following line to your Podfile:
