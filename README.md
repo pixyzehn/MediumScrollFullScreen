@@ -1,3 +1,5 @@
+**Notice: MediumScrollFullScreen is no longer being maintained/updated.**
+
 MediumScrollFullScreen
 ====================
 
@@ -13,9 +15,9 @@ MediumScrollFullScreen is really similar to menu in scroll of real Medium for iO
 
 In reference to [NJKScrollFullScreen](https://github.com/ninjinkun/NJKScrollFullScreen), I implemented MediumScrollFullScreen.
 
-##Installation
+## Installation
 
-###CocoaPods
+### CocoaPods
 
 
 The easiest way to get started is to use [CocoaPods](http://cocoapods.org/). Add the following line to your Podfile:
@@ -33,7 +35,7 @@ Then, run the following command:
 pod install
 ```
 
-###Carthage
+### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
 
@@ -55,7 +57,7 @@ Run `carthage update`.
 ```bash
 $ carthage update
 ```
-###Other
+### Other
 
 Add the MediumScrollFullScreen (including MediumScrollFullScreen.swift) folder into your project.
 
